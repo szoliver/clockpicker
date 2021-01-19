@@ -195,9 +195,12 @@
 					left: dialRadius + Math.sin(radian) * radius - tickRadius,
 					top: dialRadius - Math.cos(radian) * radius - tickRadius
 				});
+				if(options.disablehour.indexOf(i)>-1)
+					tick.css('color','red');
 				tick.html(i === 0 ? '00' : i);
 				hoursView.append(tick);
-				tick.on(mousedownEvent, mousedown);
+				if(options.disablehour.indexOf(i)==-1)
+				  tick.on(mousedownEvent, mousedown);
 			}
 		} else {
 			for (i = 0; i < 24; i += 1) {
@@ -209,12 +212,15 @@
 					left: dialRadius + Math.sin(radian) * radius - tickRadius,
 					top: dialRadius - Math.cos(radian) * radius - tickRadius
 				});
+				if(options.disablehour.indexOf(i)>-1)
+					tick.css('color','red');
 				if (inner) {
 					tick.css('font-size', '120%');
 				}
 				tick.html(i === 0 ? '00' : i);
 				hoursView.append(tick);
-				tick.on(mousedownEvent, mousedown);
+				if(options.disablehour.indexOf(i)==-1)
+				  tick.on(mousedownEvent, mousedown);
 			}
 		}
 
@@ -370,7 +376,8 @@
 		donetext: '完成',    // done button text
 		autoclose: false,    // auto close when minute is selected
 		twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
-		vibrate: true        // vibrate the device when dragging clock hand
+		vibrate: true,        // vibrate the device when dragging clock hand
+		disablehour:[]  //禁用特定小时
 	};
 
 	// Show or hide popover
