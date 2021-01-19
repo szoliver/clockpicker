@@ -77,6 +77,7 @@ if (something) {
 | twelvehour | false | enables twelve hour mode with AM & PM buttons |
 | vibrate | true | vibrate the device when dragging clock hand |
 | fromnow | 0 | set default time to * milliseconds from now (using with default = 'now') |
+| disablehour | [] |  Disable the specified hour selectio,e.g. disablehour:[1,2,3]  |
 | init | | callback function triggered after the colorpicker has been initiated |
 | beforeShow | | callback function triggered before popup is shown |
 | afterShow | | callback function triggered after popup is shown |
